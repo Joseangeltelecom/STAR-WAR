@@ -1,20 +1,10 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
+import { useCharacter } from "../hooks/useCharacter"
+import { ScaleLoader } from "react-spinners"
 
 function Character(props) {
-  const [homeworld, setHomeworld] = useState("")
-
-  const getHomeworldName = async (data) => {
-    const response = await axios.get(data)
-    return response.data
-  }
-
-  useEffect(() => {
-    getHomeworldName(`${props.homeworld}`).then((res) => {
-      setHomeworld(res)
-    })
-  }, [])
-
+  const { homeworld, loading } = useCharacter(props)
+  if (loading)
+    return <ScaleLoader color={"#123abc"} size={80} loading={loading} />
   return (
     <div class="card border-info mb-3">
       <div class="card-header fs-4">{props.name}</div>

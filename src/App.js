@@ -10,18 +10,18 @@ import "./App.css"
 
 function App() {
   const [user, setUser] = useState(null)
+  console.log(user)
   const [films, setFilms] = useState([])
   const [character, setCharacter] = useState(null)
   const [loading, setLoading] = useState(false)
   const [vista, setVista] = useState([])
 
   useEffect(() => {
-    const vistas = JSON.parse(localStorage.getItem("vistas"))
     const user = JSON.parse(localStorage.getItem("user"))
-    console.log(user)
-    if (vistas) {
+    const vistas = JSON.parse(localStorage.getItem("vistas"))
+
+    if (vistas && user) {
       setVista(vistas)
-    } else if (user) {
       setUser(user)
     }
   }, [])
