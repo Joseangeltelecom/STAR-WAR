@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/STAR-WAR/static/css/main.270cab0e.css",
+    "main.js": "/STAR-WAR/static/js/main.b74d7300.js",
+    "static/media/logo.png": "/STAR-WAR/static/media/logo.03b92289a53f8c47803b.png",
+    "index.html": "/STAR-WAR/index.html",
+    "main.270cab0e.css.map": "/STAR-WAR/static/css/main.270cab0e.css.map",
+    "main.b74d7300.js.map": "/STAR-WAR/static/js/main.b74d7300.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.270cab0e.css",
+    "static/js/main.b74d7300.js"
+  ]
+}
