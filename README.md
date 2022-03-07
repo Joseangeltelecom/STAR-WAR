@@ -1,4 +1,4 @@
-# SWAPI React Project:
+# SWAPI React Project: https://joseangeltelecom.github.io/STAR-WAR/
 
 Iniciar: Para inicializar le proyecto de forma local correr "npm install" para todas la dependencias, luego npm start para correr el servidor desarrollo.
 
