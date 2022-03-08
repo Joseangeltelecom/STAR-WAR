@@ -25,19 +25,19 @@ function App() {
     }
   }, [])
 
-  useEffect(() => {
-    if (user) {
-      const filmss = JSON.parse(localStorage.getItem("films"))
-      setFilms(filmss)
-    }
-  }, [user])
+  // useEffect(() => {
+  //   if (user) {
+  //     const filmss = JSON.parse(localStorage.getItem("films"))
+  //     setFilms(filmss)
+  //   }
+  // }, [user])
 
-  useEffect(() => {
-    if (user) {
-      const characters = JSON.parse(localStorage.getItem("characters"))
-      setCharacter(characters)
-    }
-  }, [user])
+  // useEffect(() => {
+  //   if (user) {
+  //     const characters = JSON.parse(localStorage.getItem("characters"))
+  //     setCharacter(characters)
+  //   }
+  // }, [user])
 
   // prevents the provider value from changing unless "value" or setValue changes"
 
