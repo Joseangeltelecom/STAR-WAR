@@ -1,13 +1,12 @@
 import { useContext } from "react"
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { UserContext } from "../context/userContext"
-import Logo from "../Images/logo.png"
+// import Logo from "../Images/logo.png"
 
 // import authService from "../service/auth.service"
 
 function Navbar() {
-  const { user, setUser } = useContext(UserContext)
-  let navigate = useNavigate()
+  const { user } = useContext(UserContext)
   // to logout a user we need to remove the user from our localStorage and set the User to undifined.
   const logout = () => {
     localStorage.removeItem("user")
