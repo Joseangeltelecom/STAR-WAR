@@ -12,7 +12,7 @@ function Login(props) {
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
 
-  const { setUser, setFilms, setLoading, user } = useContext(UserContext)
+  const { setUser, setFilms, setLoading } = useContext(UserContext)
 
   useEffect(() => {
     document.title = props.title || "Login"
