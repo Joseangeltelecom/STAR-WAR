@@ -1,8 +1,10 @@
 import { useCharacter } from "../hooks/useCharacter"
 import { ScaleLoader } from "react-spinners"
+import { useEffect } from "react"
 
 function Character(props) {
   const { homeworld, loading } = useCharacter(props)
+
   if (loading)
     return <ScaleLoader color={"#123abc"} size={80} loading={loading} />
   return (

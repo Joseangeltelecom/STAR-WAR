@@ -10,7 +10,6 @@ import "./App.css"
 
 function App() {
   const [user, setUser] = useState(null)
-  console.log(user)
   const [films, setFilms] = useState([])
   const [character, setCharacter] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -24,6 +23,16 @@ function App() {
       setVista(vistas)
       setUser(user)
     }
+  }, [])
+
+  useEffect(() => {
+    const filmss = JSON.parse(localStorage.getItem("films"))
+    setFilms(filmss)
+  }, [])
+
+  useEffect(() => {
+    const characters = JSON.parse(localStorage.getItem("characters"))
+    setCharacter(characters)
   }, [])
 
   // prevents the provider value from changing unless "value" or setValue changes"

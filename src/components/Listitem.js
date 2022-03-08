@@ -31,6 +31,7 @@ function ListItem(props) {
           { user: user.name, movie: props.title, time: date },
         ])
         localStorage.setItem("vistas", JSON.stringify(vista))
+        localStorage.setItem("characters", JSON.stringify(array))
         setCharacter(array)
         setLoading(false)
       })

@@ -12,7 +12,7 @@ function Login(props) {
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
 
-  const { setUser, setFilms, setLoading } = useContext(UserContext)
+  const { setUser, setFilms, setLoading, user } = useContext(UserContext)
 
   useEffect(() => {
     document.title = props.title || "Login"
@@ -42,6 +42,7 @@ function Login(props) {
       await Promise.all(
         firstData.data.results[0]["films"].map((url) => {
           return axios.get(url).then((film) => {
+            console.log("PROBANDO!!", firstData.data.results["films"])
             array.push(film.data)
           })
         })
@@ -52,6 +53,7 @@ function Login(props) {
             JSON.stringify(firstData.data.results[0])
           )
           setUser(firstData.data.results[0])
+          localStorage.setItem("films", JSON.stringify(array))
 
           setFilms(array)
           navigate("/list")
