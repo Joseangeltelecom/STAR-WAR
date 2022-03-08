@@ -10,13 +10,11 @@ function Navbar() {
   let navigate = useNavigate()
   // to logout a user we need to remove the user from our localStorage and set the User to undifined.
   const logout = () => {
-    // localStorage.removeItem("user")
-    setUser(undefined)
-    navigate("/login")
+    localStorage.removeItem("user")
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" >
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div className="container-fluid">
         <NavLink exact to="/list" className="navbar-brand px-3">
           <img src={Logo} className="logo m-2 text-white" alt="" />
