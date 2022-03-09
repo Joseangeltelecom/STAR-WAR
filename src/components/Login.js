@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-// import logo from "../images/logo.png"
+import logo from "../images/logo.png"
 import { useContext } from "react"
 import { UserContext } from "../context/userContext"
 const CryptoJS = require("crypto-js")
