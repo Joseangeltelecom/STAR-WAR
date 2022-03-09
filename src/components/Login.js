@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import Logo from "../Images/logo.png"
+// import logo from "../images/logo.png"
 import { useContext } from "react"
 import { UserContext } from "../context/userContext"
 const CryptoJS = require("crypto-js")
@@ -74,7 +74,7 @@ function Login(props) {
       <main className="container-fluid d-flex flex-column justify-content-center align-items-center h-100 pt-5 mt-5 ">
         <div className="login-container">
           <p className="text-center pb-3 display-6 fw-bold">
-            <img src={Logo} className="logo-title mx-1 mb-1" alt="" />
+            {/* <img src={Logo} className="logo-title mx-1 mb-1" alt="" /> */}
 
             <h1>E M B R A C E</h1>
           </p>
