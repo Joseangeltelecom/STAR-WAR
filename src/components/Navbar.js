@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { NavLink } from "react-router-dom"
 import { UserContext } from "../context/userContext"
-// import Logo from "../Images/logo.png"
+import Logo from "../Images/logo.png"
 
 // import authService from "../service/auth.service"
 
