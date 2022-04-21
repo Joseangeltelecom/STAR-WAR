@@ -1,82 +1,80 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
-import logo from "../images/logo.png"
-import { useContext } from "react"
-import { UserContext } from "../context/userContext"
-const CryptoJS = require("crypto-js")
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import logo from "../Images/starWarLogo.png";
+import { useContext } from "react";
+import { UserContext } from "../context/userContext";
+const CryptoJS = require("crypto-js");
 
 function Login(props) {
-  let navigate = useNavigate()
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
+  let navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const { setUser, setFilms, setLoading } = useContext(UserContext)
+  const { setUser, setFilms, setLoading } = useContext(UserContext);
 
   useEffect(() => {
-    document.title = props.title || "Login"
-  }, [props.title])
+    document.title = props.title || "Login";
+  }, [props.title]);
 
   //Encrypt
   const ciphertext = CryptoJS.AES.encrypt(
     JSON.stringify(password),
     "Star*Wars*SWAPI*-Test/2022-03-03"
-  ).toString()
+  ).toString();
 
   // Decrypt
   const bytes = CryptoJS.AES.decrypt(
     ciphertext,
     "Star*Wars*SWAPI*-Test/2022-03-03"
-  )
-  const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
+  );
+  const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
   const getData = async (e) => {
     try {
-      e.preventDefault()
-      setLoading(true)
-      let array = []
+      e.preventDefault();
+      setLoading(true);
+      let array = [];
       const firstData = await axios.get(
         `https://swapi.dev/api/people/?search=${username}`
-      )
+      );
       await Promise.all(
         firstData.data.results[0]["films"].map((url) => {
           return axios.get(url).then((film) => {
-            console.log("PROBANDO!!", firstData.data.results["films"])
-            array.push(film.data)
-          })
+            console.log("PROBANDO!!", firstData.data.results["films"]);
+            array.push(film.data);
+          });
         })
       ).then((result) => {
         if (firstData.data.results[0].hair_color === decryptedData) {
           localStorage.setItem(
             "user",
             JSON.stringify(firstData.data.results[0])
-          )
-          setUser(firstData.data.results[0])
-          localStorage.setItem("films", JSON.stringify(array))
+          );
+          setUser(firstData.data.results[0]);
+          localStorage.setItem("films", JSON.stringify(array));
 
-          setFilms(array)
-          navigate("/list")
-          setLoading(false)
+          setFilms(array);
+          navigate("/list");
+          setLoading(false);
         } else {
-          setError("Usuario y/o contraseña incorrectos")
+          setError("Usuario y/o contraseña incorrectos");
         }
-      })
+      });
     } catch (err) {
-      setError("Usuario y/o contraseña incorrectos")
+      setError("Usuario y/o contraseña incorrectos");
       // errors
-      console.log(err, "connection error")
+      console.log(err, "connection error");
     }
-  }
+  };
 
   return (
     <div className="root">
       <main className="container-fluid d-flex flex-column justify-content-center align-items-center h-100 pt-5 mt-5 ">
         <div className="login-container">
           <p className="text-center pb-3 display-6 fw-bold">
-            {/* <img src={Logo} className="logo-title mx-1 mb-1" alt="" /> */}
-
-            <h1>E M B R A C E</h1>
+            <img src={logo} className="logo-title mx-1 mb-1" alt="" />
           </p>
           <form onSubmit={getData}>
             <p hidden={error ? false : true} className="text-danger fw-bold">
@@ -113,7 +111,7 @@ function Login(props) {
         </div>
       </main>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;

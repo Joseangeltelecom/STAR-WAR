@@ -1,23 +1,22 @@
-import { useContext } from "react"
-import { NavLink } from "react-router-dom"
-import { UserContext } from "../context/userContext"
-import Logo from "../Images/logo.png"
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import { UserContext } from "../context/userContext";
+import logo from "../Images/starWarLogo.png";
 
 // import authService from "../service/auth.service"
 
 function Navbar() {
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
   // to logout a user we need to remove the user from our localStorage and set the User to undifined.
   const logout = () => {
-    localStorage.removeItem("user")
-  }
+    localStorage.removeItem("user");
+  };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top border-bottom">
       <div className="container-fluid">
         <NavLink exact to="/list" className="navbar-brand px-3">
-          <img src={Logo} className="logo m-2 text-white" alt="" />
-          <span className="h4 fw-bold">E M B R A C E</span>
+          <img src={logo} className="logo m-2" />
         </NavLink>
 
         <button
@@ -79,7 +78,7 @@ function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
